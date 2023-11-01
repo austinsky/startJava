@@ -14,21 +14,22 @@ public class VariableNamesTheme {
         System.out.println("сумма чисел: \t\t\t" + sum);
         
         // произведение цифр
-        double multiplyingNumbers = 0.5 * 2.1;
-        System.out.println("произведение цифр: \t\t" + multiplyingNumbers);
+        double multiplicationNumbers = 0.5 * 2.1;
+        System.out.println("произведение цифр: \t\t" + multiplicationNumbers);
         
         // максимальное число
-        int a = 5, b = 6;
+        int a = 5;
+        int b = 6;
         int max = (a > b) ? a : b;
         System.out.println("максимальное число: \t\t" + max);
 
         // количество десятков
-        short countTeens = 6;
-        System.out.println("количество десятков: \t\t" + countTeens);
+        short countTens = 6;
+        System.out.println("количество десятков: \t\t" + countTens);
 
         // вес собаки
-        float weightDog = 4.2f;
-        System.out.println("вес собаки: \t\t\t" + weightDog);
+        float dogWeight = 4.2f;
+        System.out.println("вес собаки: \t\t\t" + dogWeight);
 
         // исходное число
         int originalNumber = 10;
@@ -39,16 +40,16 @@ public class VariableNamesTheme {
         System.out.println("процент по вкладу: \t\t" + percentDeposit);
 
         // (переменная хранит символ) &
-        char myChar= '&';
-        System.out.println("переменная хранит символ: \t" + myChar);
+        char variableStoreAmpersandSymbol= '&';
+        System.out.println("переменная хранит символ: \t" + variableStoreAmpersandSymbol);
 
         // код ошибки
         int errorCode = -1;
         System.out.println("код ошибки: \t\t\t" + errorCode);
 
         // тип сообщения
-        String typeMessage = "INFO";
-        System.out.println("тип сообщения: \t\t\t" + typeMessage);
+        String messageType = "INFO";
+        System.out.println("тип сообщения: \t\t\t" + messageType);
         
         // число нулей
         int countZeros = 3;
@@ -67,12 +68,12 @@ public class VariableNamesTheme {
         System.out.println("математическое выражение: \t" + mathExpression);
         
         // выбор (чего-либо)
-        String choicingVelocity = "КАМА";
-        System.out.println("выбор велосипеда:\t\t" + choicingVelocity);
+        String choiceVelocity = "КАМА";
+        System.out.println("выбор велосипеда:\t\t" + choiceVelocity);
         
         // количество очков (в игре)
-        int spore = 1000;
-        System.out.println("количество очков: \t\t" + spore);
+        int score = 1000;
+        System.out.println("количество очков: \t\t" + score);
         
         // максимальная длина строки
         int maxLength = 100;
@@ -83,8 +84,8 @@ public class VariableNamesTheme {
         System.out.println("пункт меню: \t\t\t" + menuItem);
         
         // стоимость кофе на вынос
-        int costOfCoffee = 100;
-        System.out.println("стоимость кофе на вынос: \t" + costOfCoffee);
+        int costOfCoffeeTakeaway = 100;
+        System.out.println("стоимость кофе на вынос: \t" + costOfCoffeeTakeaway);
         
         // дата начала (чего-либо)
         String beginDate = "22.10.2023";
@@ -95,20 +96,20 @@ public class VariableNamesTheme {
         System.out.println("окончание диапазона: \t\t" + endRange);
         
         // полное имя работника месяца
-        String fullName = "Иванов Иван Иванович";
-        System.out.println("полное имя работника месяца: \t" + fullName);
+        String fullNameEmployeeOfTheMonth = "Иванов Иван Иванович";
+        System.out.println("полное имя работника месяца: \t" + fullNameEmployeeOfTheMonth);
         
         // заголовок электронной книги
-        String emailHeader = "header of my email";
-        System.out.println("заголовок электронной книги: \t" + emailHeader);
+        String ebookTitle = "header of my email";
+        System.out.println("заголовок электронной книги: \t" + ebookTitle);
         
         // размер
         int size = 30;
         System.out.println("размер: \t\t\t" + size);
         
         // вместимость (чего-либо)
-        int capacityContainer = 25;
-        System.out.println("вместимость контейнера: \t" + capacityContainer);
+        int capacity = 25;
+        System.out.println("вместимость контейнера: \t" + capacity);
         
         // счетчик
         int counter = 35;
@@ -119,9 +120,8 @@ public class VariableNamesTheme {
         System.out.println("путь до файла: \t\t\t" + filePath);
         
         // количество чисел в каждой строке
-        int countNumberOfForEachLine = 10;
-        System.out.println("количество чисел в каждой строке: " + countNumberOfForEachLine);
-        System.out.println();
+        int countNumbersPerLine = 10;
+        System.out.println("количество чисел в каждой строке: " + countNumbersPerLine + "\n");
 
         ////////////////////////////////////////////////////////
         ////  2. boolean-переменные                          ///
@@ -141,16 +141,16 @@ public class VariableNamesTheme {
         System.out.println("есть равные цифры?: \t\t\t" + isEqualDigits);
         
         // (что-либо) создано?
-        boolean isCreatedField = true;
-        System.out.println("Поле создано?: \t\t\t\t" + isCreatedField);
+        boolean isCreated = true;
+        System.out.println("Поле создано?: \t\t\t\t" + isCreated);
         
         // (что-либо) пусто?
-        boolean isEmptyField = false;
-        System.out.println("(что-либо) пусто?: \t\t\t" + isEmptyField);
+        boolean isEmpty = false;
+        System.out.println("(что-либо) пусто?: \t\t\t" + isEmpty);
         
         // (что-либо) активный?
-        boolean isActiveField = false;
-        System.out.println("Поле активное?: \t\t\t" + isActiveField);
+        boolean isActive = false;
+        System.out.println("Поле активное?: \t\t\t" + isActive);
         
         // новый?
         boolean isNew = false;
@@ -161,9 +161,8 @@ public class VariableNamesTheme {
         System.out.println("электронная почта действительная?: \t" + isValidEmail);
         
         // имеются уникальные строки?
-        boolean isHaveUniqueStrings = true;
-        System.out.println("имеются уникальные строки?: \t\t" + isHaveUniqueStrings);
-        System.out.println();
+        boolean hasUniqueStrings = true;
+        System.out.println("имеются уникальные строки?: \t\t" + hasUniqueStrings + "\n");
 
         ////////////////////////////////////////////////////////
         ////  3. Аббревиатуры                                ///
@@ -179,16 +178,16 @@ public class VariableNamesTheme {
         System.out.println("производитель оперативной памяти: \t\t\t\t" + manufacturerRAM);
         
         // емкость жесткого диска
-        int capacityHardDrive = 2000;
-        System.out.println("емкость жесткого диска: \t\t\t\t\t" + capacityHardDrive);
+        int capacitySSD = 2000;
+        System.out.println("емкость жесткого диска: \t\t\t\t\t" + capacitySSD);
         
         // протокол передачи гипертекста
         String protocolHTTP = "HTTP";
         System.out.println("протокол передачи гипертекста: \t\t\t\t\t" + protocolHTTP);
         
         // сокращенный uniform resource locator
-        String tinyURL = "https://youtu.be/TtT8UNK0sGg";
-        System.out.println("сокращенный uniform resource locator: \t\t\t\t" + tinyURL);
+        String shortURL = "https://youtu.be/TtT8UNK0sGg";
+        System.out.println("сокращенный uniform resource locator: \t\t\t\t" + shortURL);
         
         // новый идентификатор клиента
         int newUserID = 15;
@@ -196,7 +195,7 @@ public class VariableNamesTheme {
         
         // кодировка american standard code for information interchange
         String codingASCII = "ABC";
-        System.out.println("кодировка american standard code for information interchange: \t" + codingASCII);
-        System.out.println();
+        System.out.println("кодировка american standard code for information interchange: \t" 
+                        + codingASCII + "\n");
     } 
 }
