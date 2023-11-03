@@ -4,8 +4,12 @@ public class CyclesTheme {
         System.out.println("1. Подсчет суммы четных и нечетных чисел");
         int beginInterval = -10;
         int endInterval = 21;
-        int evenCounter = 0;         // счетчик четных чисел
-        int oddCounter = 0;          // счетчик нечетных чисел
+
+        // счетчик четных чисел
+        int evenCounter = 0; 
+
+        // счетчик нечетных чисел
+        int oddCounter = 0;          
 
         for (int i = beginInterval; i <= endInterval; ++i) {
             if (i % 2 == 0) 
@@ -14,21 +18,21 @@ public class CyclesTheme {
                 ++oddCounter;
         }
         System.out.println("В отрезке [" + beginInterval + ", " + endInterval + 
-                "] сумма четных чисел = " + evenCounter + ", а нечетных = " + oddCounter);
+                "] сумма четных чисел = " + evenCounter + ", а нечетных = " + oddCounter + "\n");
 
-        System.out.println("");
 
         // 2. Вывод чисел в порядке убывания
         System.out.println("2. Вывод чисел в порядке убывания");
-        int a = 10, b = 5, c = -1;
+        int a = 10;
+        int b = 5;
+        int c = -1;
         int max = (a >= b && a >= c) ? a : (b >= a && b >= c) ? b : c;
         int min = (a <= b && a <= c) ? a : (b <= a && b <= c) ? b : c; 
         System.out.println("min = " + min + " max = " + max);
         for (int i = min; i <= max; ++i) {
             System.out.print("" + i + " ");
         }
-        System.out.println();   
-        System.out.println();
+        System.out.println("\n");   
 
         // 3. Вывод реверсивного числа и суммы его цифр
         System.out.println("3. Вывод реверсивного числа и суммы его цифр");
@@ -40,9 +44,7 @@ public class CyclesTheme {
             System.out.print(num);
             number /= 10;
         }
-        System.out.println();
-        System.out.println("Сумма чисел = " + sum); 
-        System.out.println();
+        System.out.println("\nСумма чисел = " + sum + "\n"); 
 
         // 4. Вывод чисел в несколько строк
         System.out.println("4. Вывод чисел в несколько строк");
@@ -65,8 +67,7 @@ public class CyclesTheme {
         for (int i = countDigit; i < 5 && i != 0; ++i) {
             System.out.printf("%3d", 0);
         }
-        System.out.println();
-        System.out.println();
+        System.out.println("\n");
 
         // 5. Проверка количества двоек числа на четность/нечетность
         System.out.println("5. Проверка количества двоек числа на четность/нечетность");
@@ -81,9 +82,11 @@ public class CyclesTheme {
             digit /= 10;
         }
         if (countDvoek % 2 == 0) {
-            System.out.println("В " + src_digit + " (четное) количество двоек — " + countDvoek);
+            System.out.println("В " + src_digit 
+                    + " (четное) количество двоек — " + countDvoek +"\n");
         } else {
-            System.out.println("В " + src_digit + " (нечетное) количество двоек — " + countDvoek);
+            System.out.println("В " + src_digit 
+                    + " (нечетное) количество двоек — " + countDvoek + "\n");
         }
         System.out.println();
 
@@ -161,11 +164,10 @@ public class CyclesTheme {
         }
 
         if (reverse == a1) {
-            System.out.println("число " + a1 + " является палиндромом");
+            System.out.println("число " + a1 + " является палиндромом\n");
         } else {
-            System.out.println("число " + a1 + " не является палиндромом");
+            System.out.println("число " + a1 + " не является палиндромом\n");
         }
-        System.out.println();
 
         // 9. Проверка, является ли число счастливым
         System.out.println("9. Проверка, является ли число счастливым");
@@ -181,9 +183,8 @@ public class CyclesTheme {
             System.out.println("Число " + a2 + " не является счастливым"); 
         }
 
-        System.out.println("Сумма цифр "+ b1 + " = " + s1 + ", а сумма " + b2 + " = " + s2);
-
-        System.out.println();
+        System.out.println("Сумма цифр "+ b1 + " = " 
+                + s1 + ", а сумма " + b2 + " = " + s2 + "\n");
 
         // 10. Отображение таблицы умножения Пифагора
         System.out.println("10. Отображение таблицы умножения Пифагора");
