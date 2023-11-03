@@ -178,8 +178,8 @@ public class VariableNamesTheme {
         System.out.println("производитель оперативной памяти: \t\t\t\t" + manufacturerRam);
         
         // емкость жесткого диска
-        int capacityRam = 2000;
-        System.out.println("емкость жесткого диска: \t\t\t\t\t" + capacityRam);
+        int capacityHdd = 2000;
+        System.out.println("емкость жесткого диска: \t\t\t\t\t" + capacityHdd);
         
         // протокол передачи гипертекста
         String protocol = "HTTP";
@@ -196,6 +196,6 @@ public class VariableNamesTheme {
         // кодировка american standard code for information interchange
         String ascii = "ASCII";
         System.out.println("кодировка american standard code for information interchange: \t" 
-                        + ascii + "\n");
+                + ascii + "\n");
     } 
 }

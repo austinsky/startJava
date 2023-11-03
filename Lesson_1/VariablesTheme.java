@@ -4,9 +4,9 @@ public class VariablesTheme {
         System.out.println("1. Вывод характеристик компьютера");
         int countCores = 4;
         long networkSpeedAdapter = 1000;
-        byte capacityHdd = 127;
-        short ramMemory = 16;
-        float videoMemory = 2;
+        byte capacitySsd = 127;
+        short capacityRam = 16;
+        float capacityVram = 2;
         double cpuFrequency = 1.8;
         boolean isOnComputer = false;
 
@@ -19,9 +19,9 @@ public class VariablesTheme {
         System.out.println("Количество ядер процессора: \t\t\t" + countCores + "\n"
                 + "Скорость сетевого соединения (сетевой адаптер): "  
                 + networkSpeedAdapter + unitMega + "\n"
-                + "Емкость жесткого диска: \t\t\t" + capacityHdd  + unitMega + "\n"
-                + "Объем оперативной памяти: \t\t\t" + ramMemory  + unitGiga + "\n"
-                + "Объем видеопамяти: \t\t\t\t" + videoMemory  + unitGiga + "\n"
+                + "Емкость жесткого диска: \t\t\t" + capacitySsd  + unitMega + "\n"
+                + "Объем оперативной памяти: \t\t\t" + capacityRam  + unitGiga + "\n"
+                + "Объем видеопамяти: \t\t\t\t" + capacityVram  + unitGiga + "\n"
                 + "Частота процессора: \t\t\t\t" + cpuFrequency  + unitMega + "\n"
                 + "Включен компьютер?: \t\t\t\t" + ((isOnComputer) ? "да" : "нет" ) + "\n\n");
 
@@ -37,9 +37,9 @@ public class VariablesTheme {
 
         System.out.println("3. Вывод слова JAVA");
         System.out.println("   J    a  v     v  a\n"                                                  
-                +          "   J   a a  v   v  a a\n"                                                 
-                +          "J  J  aaaaa  V V  aaaaa\n"                                                
-                +          " JJ  a     a  V  a     a" + "\n\n");
+                + "   J   a a  v   v  a a\n"                                                 
+                + "J  J  aaaaa  V V  aaaaa\n"                                                
+                + " JJ  a     a  V  a     a" + "\n\n");
 
         System.out.println("4. Вывод min и max значений целых числовых типов");
         int maxInt = Integer.MAX_VALUE;
@@ -50,8 +50,8 @@ public class VariablesTheme {
 
         System.out.println("Integer: src = " + maxInt + " min = " + (++maxInt) 
                 + " max = " + (--maxInt) + "\n"
-                + "Char: src = " + (int)maxChar + " min = " + ((int)(++maxChar)) 
-                + " max = " + ((int)(--maxChar)) + "\n"
+                + "Char: src = " + (int)maxChar + " min = " + ((int) ++maxChar) 
+                + " max = " + ((int) --maxChar) + "\n"
                 + "Byte: src = " + maxByte + " min = " + (++maxByte) 
                 + " max = " + (--maxByte) + "\n"
                 + "Long: src = " + maxLong + " min = " + (++maxLong) 
@@ -83,7 +83,7 @@ public class VariablesTheme {
         System.out.println("с помощью побитовой операции ^\n"
                 + "исходные значения переменных: a = " + a + " b = " + b);
         a ^= b; 
-        b = a ^ b; 
+        b ^= a; 
         a ^= b;
         System.out.println("новые значения переменных: a = " + a + " b = " + b + "\n");
 
@@ -93,26 +93,26 @@ public class VariablesTheme {
         char atSign      = '@';    // (char)64; 
         char verticalBar = '|';    // (char)124;
         char tilde       = '~';    // (char)126;
-        System.out.println(String.valueOf((int)dollar) + ": \t" + dollar + "\n"
-                + String.valueOf((int)asterisk) + ": \t" + asterisk + "\n"
-                + String.valueOf((int)atSign) + ": \t" + atSign + "\n"
-                + String.valueOf((int)verticalBar) + ": \t" + verticalBar + "\n"
-                + String.valueOf((int)tilde) + ": \t" + tilde + "\n");
+        System.out.println((int) dollar + ": \t" + dollar + "\n"
+                + (int) asterisk + ": \t" + asterisk + "\n"
+                + (int) atSign + ": \t" + atSign + "\n"
+                + (int) verticalBar + ": \t" + verticalBar + "\n"
+                + (int) tilde + ": \t" + tilde + "\n");
 
         System.out.println("7. Вывод в консоль ASCII-арт Дюка");
-        final char SLASH            = '/';
-        final char BACKSLASH        = '\\';
-        final char LEFTPARENTHESIS  = '(';
-        final char RIGHTPARENTHESIS = ')';
-        final char UNDERSCORE       = '_';
+        final char slash            = '/';
+        final char backslash        = '\\';
+        final char leftParenthesis  = '(';
+        final char rightParenthesis = ')';
+        final char underscore       = '_';
 
-        System.out.println("    " + SLASH + BACKSLASH + " \n"
-                + "   " + SLASH + "  " + BACKSLASH + "\n"
-                + "  " + SLASH + UNDERSCORE + LEFTPARENTHESIS + " "
-                + RIGHTPARENTHESIS + BACKSLASH + "\n"
-                + " " + SLASH + "      " + BACKSLASH + "\n"
-                + "" + SLASH + UNDERSCORE + UNDERSCORE + UNDERSCORE + UNDERSCORE + SLASH 
-                + BACKSLASH + UNDERSCORE + UNDERSCORE + BACKSLASH + " \n");
+        System.out.println("    " + slash + backslash + " \n"
+                + "   " + slash + "  " + backslash + "\n"
+                + "  " + slash + backslash + leftParenthesis + " "
+                + rightParenthesis + backslash + "\n"
+                + " " + slash + "      " + backslash + "\n"
+                + "" + slash + underscore + underscore + underscore + underscore + slash 
+                + backslash + underscore + underscore + backslash + " \n");
 
         // System.out.println("    /\\ ");
         // System.out.println("   /  \\");
@@ -138,6 +138,6 @@ public class VariablesTheme {
         int minutes = (numSeconds % 3600) / 60;
         int seconds = numSeconds %  60; 
         // System.out.println(hours + ":" +  minutes + ":" + seconds); 
-        System.out.println(String.format("%02d:%02d:%02d", hours, minutes, seconds) + "\n");
+        System.out.printf("%02d:%02d:%02d\n\n", hours, minutes, seconds);
     }
 }
