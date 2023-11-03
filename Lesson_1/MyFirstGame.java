@@ -1,7 +1,10 @@
 public class MyFirstGame {
     public static void main(String[] args) {
-        int target = 50;        // число которое надо угадать
-        int tmp_num = 48;       // число с которого начинаем угадывать (аналог Math.random)
+        // число которое надо угадать
+        int target = 50;     
+
+        // число с которого начинаем угадывать (аналог Math.random)
+        int tmp_num = 48;       
 
         int startInterval = 0;
         int endInterval = 100;

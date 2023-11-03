@@ -5,7 +5,7 @@ public class IfElseStatementTheme {
         final int MALE = 1;
         final int FEMALE = 2;
 
-        int gender = 1;
+        int gender = MALE;
 
         if (gender != MALE) {
             System.out.println("не мужской пол");
@@ -69,8 +69,8 @@ public class IfElseStatementTheme {
         int hundreds2 = a2 / 100;
         int tens1 = (a1 % 100) / 10;
         int tens2 = (a2 % 100) / 10;
-        int units1 = a1 % 10;
-        int units2 = a2 % 10;
+        int ones1 = a1 % 10;
+        int ones2 = a2 % 10;
         int countEquals = 0; // количество совпадений
         System.out.println("Исходные числа: a1 = " + a1 + ", a2 = " + a2);
         if (hundreds1 == hundreds2) {
@@ -83,8 +83,8 @@ public class IfElseStatementTheme {
             ++countEquals;
         }
 
-        if (units1 == units2) {
-            System.out.println("Совпадают единицы - " + units1);
+        if (ones1 == ones2) {
+            System.out.println("Совпадают единицы - " + ones1);
             ++countEquals;
         }
 
@@ -120,10 +120,9 @@ public class IfElseStatementTheme {
         } else if (amount > 300000) {
             deposit = amount * 0.1;
         } 
-        System.out.println("сумма вклада - " + amount);
-        System.out.println("сумма начисленного % - " + deposit);
-        System.out.println("итоговая сумма с % - " + (amount + deposit));
-        System.out.println();
+        System.out.println("сумма вклада - " + amount + "\n"
+                + "сумма начисленного % - " + deposit + "\n"
+                + "итоговая сумма с % - " + (amount + deposit) + "\n");
 
         // 7. Определение оценки по предметам
         System.out.println("7. Определение оценки по предметам");
@@ -162,16 +161,20 @@ public class IfElseStatementTheme {
 
         int avgScore = (historyScore + programmingScore) / 2;
 
-        System.out.println("средний балл оценок по предметам - " + avgScore);
-        System.out.println("средний % по предметам " + avgGrade);
-
-        System.out.println();
+        System.out.println("средний балл оценок по предметам - " + avgScore + "\n"
+                + "средний % по предметам " + avgGrade + "\n");
 
         // 8. Расчет годовой прибыли
         System.out.println("8. Расчет годовой прибыли");
-        int priceProduct = 13000;  // ежемусячные продажи
-        int rent = 5000;           // Аренда
-        int costProduct = 9000;    // Себестоимость товара
+        // ежемусячные продажи
+        int priceProduct = 13000;  
+        
+        // Аренда
+        int rent = 5000;     
+
+        // Себестоимость товара
+        int costProduct = 9000;  
+
         int profit = 12 * (priceProduct - rent - costProduct);
 
         if (profit == 0) {

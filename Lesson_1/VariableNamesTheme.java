@@ -40,8 +40,8 @@ public class VariableNamesTheme {
         System.out.println("процент по вкладу: \t\t" + percentDeposit);
 
         // (переменная хранит символ) &
-        char variableStoreAmpersandSymbol= '&';
-        System.out.println("переменная хранит символ: \t" + variableStoreAmpersandSymbol);
+        char ampersand = '&';
+        System.out.println("переменная хранит символ: \t" + ampersand);
 
         // код ошибки
         int errorCode = -1;
@@ -96,8 +96,8 @@ public class VariableNamesTheme {
         System.out.println("окончание диапазона: \t\t" + endRange);
         
         // полное имя работника месяца
-        String fullNameEmployeeOfTheMonth = "Иванов Иван Иванович";
-        System.out.println("полное имя работника месяца: \t" + fullNameEmployeeOfTheMonth);
+        String fullNameEmployeeMonth = "Иванов Иван Иванович";
+        System.out.println("полное имя работника месяца: \t" + fullNameEmployeeMonth);
         
         // заголовок электронной книги
         String ebookTitle = "header of my email";
@@ -170,32 +170,32 @@ public class VariableNamesTheme {
 
         System.out.println("3. Аббревиатуры");
         // старый universally unique identifier
-        long oldUUID = 0x55298c02;
-        System.out.println("старый universally unique identifier: \t\t\t\t0x" + String.format("%x", oldUUID));
+        long oldUuid = 0x55298c02;
+        System.out.println("старый universally unique identifier: \t\t\t\t0x" + String.format("%x", oldUuid));
         
         // производитель оперативной памяти
-        String manufacturerRAM = "Samsung";
-        System.out.println("производитель оперативной памяти: \t\t\t\t" + manufacturerRAM);
+        String manufacturerRam = "Samsung";
+        System.out.println("производитель оперативной памяти: \t\t\t\t" + manufacturerRam);
         
         // емкость жесткого диска
-        int capacitySSD = 2000;
-        System.out.println("емкость жесткого диска: \t\t\t\t\t" + capacitySSD);
+        int capacityRam = 2000;
+        System.out.println("емкость жесткого диска: \t\t\t\t\t" + capacityRam);
         
         // протокол передачи гипертекста
-        String protocolHTTP = "HTTP";
-        System.out.println("протокол передачи гипертекста: \t\t\t\t\t" + protocolHTTP);
+        String protocol = "HTTP";
+        System.out.println("протокол передачи гипертекста: \t\t\t\t\t" + protocol);
         
         // сокращенный uniform resource locator
-        String shortURL = "https://youtu.be/TtT8UNK0sGg";
-        System.out.println("сокращенный uniform resource locator: \t\t\t\t" + shortURL);
+        String shortUrl = "https://youtu.be/TtT8UNK0sGg";
+        System.out.println("сокращенный uniform resource locator: \t\t\t\t" + shortUrl);
         
         // новый идентификатор клиента
-        int newUserID = 15;
-        System.out.println("новый идентификатор клиента: \t\t\t\t\t" + newUserID);
+        int newUserId = 15;
+        System.out.println("новый идентификатор клиента: \t\t\t\t\t" + newUserId);
         
         // кодировка american standard code for information interchange
-        String codingASCII = "ABC";
+        String ascii = "ASCII";
         System.out.println("кодировка american standard code for information interchange: \t" 
-                        + codingASCII + "\n");
+                        + ascii + "\n");
     } 
 }
