@@ -11,14 +11,14 @@ public class CyclesTheme {
         // счетчик нечетных чисел
         int oddSum = 0;          
 
-        int currentValue = beginInterval;
+        int counter = beginInterval;
         do {
-            if (currentValue % 2 == 0) 
-                evenSum += currentValue;
-            else
-                oddSum += currentValue;
-
-        } while (currentValue++ < endInterval);
+            if (counter % 2 == 0) {
+                evenSum += counter;
+            } else {
+                oddSum += counter;
+            }
+        } while (counter++ < endInterval);
 
         System.out.println("В отрезке [" + beginInterval + ", " + endInterval + 
                 "] сумма четных чисел = " + evenSum + ", а нечетных = " + oddSum + "\n");
@@ -70,18 +70,18 @@ public class CyclesTheme {
         System.out.println("4. Вывод чисел в несколько строк");
         beginInterval = 1;
         endInterval = 24;
-        int countDigit = 0;
+        int countDigits = 0;
 
-        for (int i = beginInterval; i < endInterval; i+=2) {
-                System.out.printf("%3d", i);
-                countDigit++;
-                if (countDigit == 5) {
-                    System.out.println();
-                    countDigit = 0;
-                }
+        for (int i = beginInterval; i < endInterval; i += 2) {
+            System.out.printf("%3d", i);
+            countDigits++;
+            if (countDigits == 5) {
+                System.out.println();
+                countDigits = 0;
+            }
         }
 
-        for (int i = countDigit; i > 0 && i < 5; i++) {
+        for (int i = countDigits; i > 0 && i < 5; i++) {
             System.out.printf("%3d", 0);
         }
         System.out.println("\n");
@@ -92,9 +92,9 @@ public class CyclesTheme {
         int copySrcNum = srcNum;
         int countTwos = 0;
         while(copySrcNum > 0) {
-            if ((copySrcNum % 10) == 2) 
+            if ((copySrcNum % 10) == 2) {
                 countTwos++;
-
+            }
             copySrcNum /= 10;
         }
         if (countTwos % 2 == 0) {
@@ -142,12 +142,15 @@ public class CyclesTheme {
             } while (column < row);
             System.out.println();
             
-            if (sign == 1) 
+            if (sign == 1) {
                 row--;
-            else if (sign == 0) 
+            } else if (sign == 0) { 
                 row++;
+            }
 
-            if (row == 3 || row == 0) sign++;
+            if (row == 3 || row == 0) { 
+                sign++;
+            }
         } while (sign < 2);
         System.out.println();
 
@@ -194,28 +197,24 @@ public class CyclesTheme {
         int rightHalf  = happyNumber % 1000;
         int copyLeftHalf = leftHalf;
         int copyRightHalf = rightHalf;
-        int s1 = 0;
-        int s2 = 0;
+        int sumLeftHalf = 0;
+        int sumRightHalf = 0;
 
-        while (copyLeftHalf > 0) {
-            s1 += copyLeftHalf % 10;
+        while (copyLeftHalf > 0 || copyRightHalf > 0) {
+            sumLeftHalf += copyLeftHalf % 10;
             copyLeftHalf /= 10;
-        }
-
-
-        while (copyRightHalf > 0) {
-            s2 += copyRightHalf % 10;
+            sumRightHalf += copyRightHalf % 10;
             copyRightHalf /= 10;
         }
 
-        if (s1 == s2) {
+        if (sumLeftHalf == sumRightHalf) {
             System.out.println("Число " + happyNumber + " является счастливым");   
         } else {
             System.out.println("Число " + happyNumber + " не является счастливым"); 
         }
 
         System.out.println("Сумма цифр "+ leftHalf + " = " 
-                + s1 + ", а сумма " + rightHalf + " = " + s2 + "\n");
+                + sumLeftHalf + ", а сумма " + rightHalf + " = " + sumRightHalf + "\n");
 
         // 10. Отображение таблицы умножения Пифагора
         System.out.println("10. Отображение таблицы умножения Пифагора");
