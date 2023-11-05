@@ -68,12 +68,11 @@ public class CyclesTheme {
 
         // 4. Вывод чисел в несколько строк
         System.out.println("4. Вывод чисел в несколько строк");
-        int beginInterv = 1;
-        int endInterv = 24;
-        // int endInterv = 30;
+        beginInterval = 1;
+        endInterval = 24;
         int countDigit = 0;
 
-        for (int i = beginInterv; i < endInterv; i+=2) {
+        for (int i = beginInterval; i < endInterval; i+=2) {
                 System.out.printf("%3d", i);
                 countDigit++;
                 if (countDigit == 5) {
