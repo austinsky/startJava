@@ -48,16 +48,16 @@ public class VariablesTheme {
         long maxLong = Long.MAX_VALUE;
         short maxShort = Short.MAX_VALUE;
 
-        System.out.println("Integer: src = " + maxInt + " min = " + (++maxInt) 
-                + " max = " + (--maxInt) + "\n"
-                + "Char: src = " + (int)maxChar + " min = " + ((int) ++maxChar) 
-                + " max = " + ((int) --maxChar) + "\n"
-                + "Byte: src = " + maxByte + " min = " + (++maxByte) 
+        System.out.println("Integer: src = " + maxInt + " min = " + ++maxInt 
+                + " max = " + --maxInt + "\n"
+                + "Char: src = " + (int) maxChar + " min = " + (int) ++maxChar
+                + " max = " + (int) --maxChar + "\n"
+                + "Byte: src = " + maxByte + " min = " + ++maxByte 
                 + " max = " + (--maxByte) + "\n"
-                + "Long: src = " + maxLong + " min = " + (++maxLong) 
-                + " max = " + (--maxLong) + "\n"
-                + "Short: src = " + maxShort + " min = " + (++maxShort) 
-                + " max = " + (--maxShort) + "\n\n");
+                + "Long: src = " + maxLong + " min = " + ++maxLong 
+                + " max = " + --maxLong + "\n"
+                + "Short: src = " + maxShort + " min = " + ++maxShort 
+                + " max = " + --maxShort + "\n\n");
 
         System.out.println("5. Перестановка значений переменных");
         int a = 2;
@@ -100,11 +100,11 @@ public class VariablesTheme {
                 + (int) tilde + ": \t" + tilde + "\n");
 
         System.out.println("7. Вывод в консоль ASCII-арт Дюка");
-        final char slash            = '/';
-        final char backslash        = '\\';
-        final char leftParenthesis  = '(';
-        final char rightParenthesis = ')';
-        final char underscore       = '_';
+        char slash = '/';
+        char backslash = '\\';
+        char leftParenthesis = '(';
+        char rightParenthesis = ')';
+        char underscore = '_';
 
         System.out.println("    " + slash + backslash + " \n"
                 + "   " + slash + "  " + backslash + "\n"
