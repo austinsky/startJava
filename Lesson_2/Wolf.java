@@ -5,11 +5,35 @@ public class Wolf {
     private int age;
     private String color;
 
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age < 0 || age > 8) {
+            System.out.println("Некорректный возраст");
+        } else {
+            this.age = age;
+        }
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+    
     public void go() {
         System.out.println(nickname + " идет");
     }
 
-    public void seat() {
+    public void sit() {
         System.out.println(nickname + " сидит");
     }
 
@@ -43,29 +67,5 @@ public class Wolf {
 
     public int getWeight() {
         return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        if (age > 8 || age < 0) {
-            System.out.println("Некорректный возраст");
-        } else {
-            this.age = age;
-        }
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 }

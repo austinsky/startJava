@@ -14,7 +14,7 @@ public class WolfTest {
         System.out.println("пол: " + wolf.getGender() + "\n");
 
         wolf.go();
-        wolf.seat();
+        wolf.sit();
         wolf.run();
         wolf.howl();
         wolf.hunt();

@@ -9,8 +9,8 @@ public class Person {
         System.out.println("Person.go(): " + name + " идет");
     }
 
-    public void seat() {
-        System.out.println("Person.seat(): " + name + " сидит");
+    public void sit() {
+        System.out.println("Person.sit(): " + name + " сидит");
     }
 
     public void run() {
