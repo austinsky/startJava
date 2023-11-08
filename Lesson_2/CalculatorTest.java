@@ -2,21 +2,24 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner;
     
     public static void main(String[] args) {
         // создание объектов
         Calculator calculator = new Calculator();
+        scanner = new Scanner(System.in);
         
         String answerContinue = "";
         while(!answerContinue.equals("no")) {
-            enterMathExpression(calculator);
             try {
+                enterMathExpression(calculator);
                 double result = calculator.calculate();
                 System.out.println(calculator.getA() + " " + calculator.getMathOperation() + " " 
                         + calculator.getB() + " = " + result);
             } catch(IllegalArgumentException e) {
                 System.out.println(e.getMessage());
+            } catch(Exception e) {
+                System.out.println("Ошибка ввода: введены неправильные данные: ");
             }
 
             do {
