@@ -10,5 +10,6 @@ public class GuessNumberTest {
         Player player2 = new Player(scanner.nextLine());
 
         GuessNumber guessNumber = new GuessNumber(player1, player2, scanner); 
+        scanner.close();
     }
 }

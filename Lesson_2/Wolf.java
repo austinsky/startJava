@@ -5,6 +5,26 @@ public class Wolf {
     private int age;
     private String color;
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+    
     public void setWeight(int weight) {
         this.weight = weight;
     }
@@ -47,25 +67,5 @@ public class Wolf {
 
     public void hunt() {
         System.out.println(nickname + " охотиться");
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public int getWeight() {
-        return weight;
     }
 }

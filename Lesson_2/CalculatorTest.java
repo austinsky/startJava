@@ -7,7 +7,8 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         
         Scanner scanner = new Scanner(System.in);
-        while(true) {
+        String answerContinue = "";
+        while(!answerContinue.equals("no")) {
             System.out.print("Введите первое число: ");
             calculator.setA(scanner.nextInt());
             scanner.nextLine();
@@ -17,25 +18,21 @@ public class CalculatorTest {
             calculator.setB(scanner.nextInt());
             scanner.nextLine();
 
-            if (calculator.execute() == 0) {
+
+            try {
+                double result = calculator.calculate();
                 System.out.println(calculator.getA() + " " + calculator.getMathOperation() + " " 
-                        + calculator.getB() + " = " + calculator.getResult());
-            } else {
-                System.out.println("Вы ввели недопустимую операцию: " + calculator.getMathOperation() + "."
-                        + " Доступны операции +, -, *, /, %, ^");
+                        + calculator.getB() + " = " + result);
+            } catch(IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
 
-            while(true) {
+            do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-                String answerContinue = scanner.nextLine();
-                if (answerContinue.equals("no")) {
-                    return;
-                } else if (answerContinue.equals("yes")) {
-                    break;
-                } else {
-                    continue;
-                }
-            } 
+                answerContinue = scanner.nextLine().toLowerCase();
+            } while(!(answerContinue.equals("yes")) && !(answerContinue.equals("no")));
         }
+
+        scanner.close();
     }
 }

@@ -32,8 +32,7 @@ public class Calculator {
         return result;
     }
 
-    public int execute() {
-        int error = 0;
+    public double calculate() {
         switch(mathOperation) {
             case '+':
                 result = (double) a + b;
@@ -45,6 +44,9 @@ public class Calculator {
                 result = (double) a * b;
                 break;
             case '/':
+                if (b == 0) {
+                    throw new IllegalArgumentException("Недопустимая операция: деление на 0");
+                }
                 result = (double) a / b;
                 break;
             case '^':
@@ -58,10 +60,10 @@ public class Calculator {
                 break;
             default:
                 System.out.println();
-                error = 1;
-                break;
+                throw new IllegalArgumentException("Вы ввели недопустимую операцию: " 
+                        + mathOperation + ". Доступны операции +, -, *, /, %, ^");
         }
 
-        return error;
+        return result;
     }
 }
