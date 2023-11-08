@@ -1,24 +1,16 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
+
+    private static final Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
         // создание объектов
         Calculator calculator = new Calculator();
         
-        Scanner scanner = new Scanner(System.in);
         String answerContinue = "";
         while(!answerContinue.equals("no")) {
-            System.out.print("Введите первое число: ");
-            calculator.setA(scanner.nextInt());
-            scanner.nextLine();
-            System.out.print("Введите знак математической операции: ");
-            calculator.setMathOperation(scanner.nextLine().charAt(0));
-            System.out.print("Введите второе число: ");
-            calculator.setB(scanner.nextInt());
-            scanner.nextLine();
-
-
+            enterMathExpression(calculator);
             try {
                 double result = calculator.calculate();
                 System.out.println(calculator.getA() + " " + calculator.getMathOperation() + " " 
@@ -30,9 +22,20 @@ public class CalculatorTest {
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
                 answerContinue = scanner.nextLine().toLowerCase();
-            } while(!(answerContinue.equals("yes")) && !(answerContinue.equals("no")));
+            } while(!answerContinue.equals("yes") && !answerContinue.equals("no"));
         }
 
         scanner.close();
+    }
+
+    public static void enterMathExpression(Calculator calculator) {
+        System.out.print("Введите первое число: ");
+        calculator.setA(scanner.nextInt());
+        scanner.nextLine();
+        System.out.print("Введите знак математической операции: ");
+        calculator.setMathOperation(scanner.nextLine().charAt(0));
+        System.out.print("Введите второе число: ");
+        calculator.setB(scanner.nextInt());
+        scanner.nextLine();
     }
 }

@@ -2,7 +2,6 @@ public class Calculator {
     private int a;
     private int b;
     private char mathOperation;
-    private double result;
 
     public void setA(int a) {
         this.a = a;
@@ -28,20 +27,17 @@ public class Calculator {
         return mathOperation;
     }
 
-    public double getResult() {
-        return result;
-    }
-
     public double calculate() {
+        double result;
         switch(mathOperation) {
             case '+':
-                result = (double) a + b;
+                result = a + b;
                 break;
             case '-':
-                result = (double) a - b;
+                result = a - b;
                 break;
             case '*':
-                result = (double) a * b;
+                result = a * b;
                 break;
             case '/':
                 if (b == 0) {
@@ -59,7 +55,6 @@ public class Calculator {
                 result = a % b;
                 break;
             default:
-                System.out.println();
                 throw new IllegalArgumentException("Вы ввели недопустимую операцию: " 
                         + mathOperation + ". Доступны операции +, -, *, /, %, ^");
         }

@@ -1,8 +1,6 @@
 public class JaegerTest {
     public static void main(String[] args) {
-        Jaeger mark5 = new Jaeger("Bracer Phoenix", "Mark-5", "USA", 70.7f, 2.1f, 3, 8, 9);
         Jaeger mark1 = new Jaeger();
-
         mark1.setModelName("Brawler Yukon");
         mark1.setMark("Mark-1");
         mark1.setOrigin("USA");
@@ -11,8 +9,9 @@ public class JaegerTest {
         mark1.setSpeed(2);
         mark1.setStrenght(10);
         mark1.setArmor(20);
-
         mark1.drigt();
+        
+        Jaeger mark5 = new Jaeger("Bracer Phoenix", "Mark-5", "USA", 70.7f, 2.1f, 3, 8, 9);
         mark5.move();
         System.out.println("\nИнформация о модели до изменения: " + mark1);
         mark1.setArmor(30);
