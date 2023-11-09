@@ -31,20 +31,16 @@ public class Calculator {
         double result;
         switch(mathOperation) {
             case '+':
-                result = a + b;
-                break;
+                return a + b;
             case '-':
-                result = a - b;
-                break;
+                return a - b;
             case '*':
-                result = a * b;
-                break;
+                return a * b;
             case '/':
                 if (b == 0) {
                     throw new IllegalArgumentException("Недопустимая операция: деление на 0");
                 }
-                result = (double) a / b;
-                break;
+                return (double) a / b;
             case '^':
                 result = 1;
                 for (int i = 0; i < b; ++i) {
@@ -52,8 +48,7 @@ public class Calculator {
                 }
                 break;
             case '%':
-                result = a % b;
-                break;
+                return a % b;
             default:
                 throw new IllegalArgumentException("Вы ввели недопустимую операцию: " 
                         + mathOperation + ". Доступны операции +, -, *, /, %, ^");

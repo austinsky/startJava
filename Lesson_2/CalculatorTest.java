@@ -11,15 +11,12 @@ public class CalculatorTest {
         
         String answerContinue = "";
         while(!answerContinue.equals("no")) {
+            enterMathExpression(calculator);
             try {
-                enterMathExpression(calculator);
                 double result = calculator.calculate();
-                System.out.println(calculator.getA() + " " + calculator.getMathOperation() + " " 
-                        + calculator.getB() + " = " + result);
+                printResult(calculator, result);
             } catch(IllegalArgumentException e) {
                 System.out.println(e.getMessage());
-            } catch(Exception e) {
-                System.out.println("Ошибка ввода: введены неправильные данные: ");
             }
 
             do {
@@ -29,6 +26,11 @@ public class CalculatorTest {
         }
 
         scanner.close();
+    }
+
+    public static void printResult(Calculator calculator, double result) {
+        System.out.println(calculator.getA() + " " + calculator.getMathOperation() + " " 
+                        + calculator.getB() + " = " + result);
     }
 
     public static void enterMathExpression(Calculator calculator) {
