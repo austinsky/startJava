@@ -30,7 +30,7 @@ public class CalculatorTest {
 
     public static void printResult(Calculator calculator, double result) {
         System.out.println(calculator.getA() + " " + calculator.getMathOperation() + " " 
-                        + calculator.getB() + " = " + result);
+                + calculator.getB() + " = " + result);
     }
 
     public static void enterMathExpression(Calculator calculator) {

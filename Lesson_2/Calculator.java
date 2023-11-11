@@ -28,7 +28,6 @@ public class Calculator {
     }
 
     public double calculate() {
-        double result;
         switch(mathOperation) {
             case '+':
                 return a + b;
@@ -42,18 +41,16 @@ public class Calculator {
                 }
                 return (double) a / b;
             case '^':
-                result = 1;
-                for (int i = 0; i < b; ++i) {
+                double result = 1;
+                for (int i = 0; i < b; i++) {
                     result *= a; 
                 }
-                break;
+                return result;
             case '%':
                 return a % b;
             default:
                 throw new IllegalArgumentException("Вы ввели недопустимую операцию: " 
                         + mathOperation + ". Доступны операции +, -, *, /, %, ^");
         }
-
-        return result;
     }
 }

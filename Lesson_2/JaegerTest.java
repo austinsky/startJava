@@ -10,13 +10,12 @@ public class JaegerTest {
         mark1.setStrenght(10);
         mark1.setArmor(20);
         mark1.drigt();
-        
+
         Jaeger mark5 = new Jaeger("Bracer Phoenix", "Mark-5", "USA", 70.7f, 2.1f, 3, 8, 9);
         mark5.move();
         System.out.println("\nИнформация о модели до изменения: " + mark1);
         mark1.setArmor(30);
         System.out.println("Информация о модели после изменения: " + mark1);
         System.out.println(mark5);
-
     }
 }

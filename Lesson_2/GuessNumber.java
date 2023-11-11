@@ -12,34 +12,36 @@ public class GuessNumber {
         this.scanner = scanner;
     }
 
-    public void startGame() {
+    public void start() {
         Random random = new Random();
-        int number = random.nextInt(100) + 1;
-        Player currentPlayer = player2;
+        int guessNumber = random.nextInt(100) + 1;
+        Player currentPlayer = player1;
             
         while(true) {
-            if (currentPlayer == player1) {
-                currentPlayer = player2;
-            } else {
-                currentPlayer = player1;
-            }
-
-            System.out.print(currentPlayer.getName() + " введите ваше число: ");
-            int playerNumber = scanner.nextInt();
-            scanner.nextLine();
-            if(isGuessed(currentPlayer, playerNumber, number)) {
+            currentPlayer.setNumber(enterPlayerNumber(currentPlayer));
+            if(isGuessed(currentPlayer, guessNumber)) {
                 break;
             }
+
+            currentPlayer = (currentPlayer == player1) ? player2 : player1;
         }
     }
 
-    public boolean isGuessed(Player currentPlayer, int playerNumber, int number) {
-        if (playerNumber == number) {
+    public int enterPlayerNumber(Player currentPlayer) {
+        System.out.print(currentPlayer.getName() + " введите ваше число: ");
+        int playerNumber = scanner.nextInt();
+        scanner.nextLine();
+        return playerNumber;
+    }
+
+    public boolean isGuessed(Player currentPlayer,  int guessNumber) {
+        int playerNumber = currentPlayer.getNumber();
+        if (playerNumber == guessNumber) {
             System.out.println(currentPlayer.getName() + " - Вы победили!");
             return true;
-        } else if (playerNumber < number) {
+        } else if (playerNumber < guessNumber) {
             System.out.println("Число " + playerNumber + " меньше того, что загадал компьютер");
-        } else if (playerNumber > number) {
+        } else if (playerNumber > guessNumber) {
             System.out.println("Число " + playerNumber + " больше того, что загадал компьютер");
         }
         return false;
