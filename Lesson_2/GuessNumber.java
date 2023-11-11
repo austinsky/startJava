@@ -15,34 +15,34 @@ public class GuessNumber {
     public void start() {
         Random random = new Random();
         int guessNumber = random.nextInt(100) + 1;
-        Player currentPlayer = player1;
+        Player player = player1;
             
         while(true) {
-            currentPlayer.setNumber(enterPlayerNumber(currentPlayer));
-            if(isGuessed(currentPlayer, guessNumber)) {
+            enterNumber(player);
+            if (isGuessed(player, guessNumber)) {
                 break;
             }
-
-            currentPlayer = (currentPlayer == player1) ? player2 : player1;
+            player = (player == player1) ? player2 : player1;
         }
     }
 
-    public int enterPlayerNumber(Player currentPlayer) {
-        System.out.print(currentPlayer.getName() + " введите ваше число: ");
+    private int enterNumber(Player player) {
+        System.out.print(player.getName() + " введите ваше число: ");
         int playerNumber = scanner.nextInt();
         scanner.nextLine();
+        player.setNumber(playerNumber);
         return playerNumber;
     }
 
-    public boolean isGuessed(Player currentPlayer,  int guessNumber) {
+    private boolean isGuessed(Player currentPlayer,  int guessNumber) {
         int playerNumber = currentPlayer.getNumber();
-        if (playerNumber == guessNumber) {
-            System.out.println(currentPlayer.getName() + " - Вы победили!");
-            return true;
-        } else if (playerNumber < guessNumber) {
+        if (playerNumber < guessNumber) {
             System.out.println("Число " + playerNumber + " меньше того, что загадал компьютер");
         } else if (playerNumber > guessNumber) {
             System.out.println("Число " + playerNumber + " больше того, что загадал компьютер");
+        } else if (playerNumber == guessNumber) {
+            System.out.println(currentPlayer.getName() + " - Вы победили!");
+            return true;
         }
         return false;
     }
