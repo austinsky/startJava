@@ -1,3 +1,8 @@
+out
+
+#gitignore
+.gitignore
+
 # Compiled class file
 *.class
 
