@@ -3,7 +3,6 @@ package com.startjava.lesson_2_3_4.array;
 import java.util.Random;
 
 public class ArraysTheme {
-
     public static void main(String[] args) {
         // 1. Реверс значений массива
         reverseArray(new int[] {1, 7, 4, 5, 2, 6, 3});
