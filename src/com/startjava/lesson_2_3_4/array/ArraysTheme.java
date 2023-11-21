@@ -5,11 +5,11 @@ import java.util.Random;
 public class ArraysTheme {
     public static void main(String[] args) {
         // 1. Реверс значений массива
-        reverseArray(new int[] {1, 7, 4, 5, 2, 6, 3});
+        reverseArray();
         System.out.println();
 
         // 2. Произведение элементов массива
-        multiplicationArray(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
+        multiplicationElements();
         System.out.println();
 
         // 3. Удаление элементов массива
@@ -17,7 +17,7 @@ public class ArraysTheme {
         System.out.println();
 
         // 4. Вывод алфавита лесенкой
-        alpabitLadder();
+        printLadderAlphabit();
         System.out.println();
 
         // 5. Заполнение массива уникальными числами
@@ -26,78 +26,83 @@ public class ArraysTheme {
     }
 
     // 1. Реверс значений массива
-    public static void reverseArray(int[] array) {
+    private static void reverseArray() {
         System.out.println("1. Реверс значений массива");
-        int len = array.length;
+        int[] reverseArray = new int[] {1, 7, 4, 5, 2, 6, 3};
+        int len = reverseArray.length - 1;
         System.out.print("До реверса: ");
-        printArray(array);
+        printArray(reverseArray);
 
-        for (int i = 0; i < len / 2; i++) {
-            int tmp = array[i];
-            array[i] = array[len - i - 1];
-            array[len - i - 1] = tmp;
+        for (int i = 0; i < len; i++, len--) {
+            int tmp = reverseArray[i];
+            reverseArray[i] = reverseArray[len];
+            reverseArray[len] = tmp;
         }
 
         System.out.print("После реверса: ");
-        printArray(array);
+        printArray(reverseArray);
     }
 
     // 2. Произведение элементов массива
-    public static void multiplicationArray(int[] array) {
+    private static void multiplicationElements() {
         System.out.println("2. Произведение элементов массива");
+        int[] elements = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int len = elements.length;
         long result = 1;
-        for (int i = 1; i < array.length - 1; i++) {
-            result *= array[i];
-            String operation = (array.length - 2 == i) ? " = " : " + ";
-            System.out.print(i + operation);
+
+        for (int i = 1; i < len - 1; i++) {
+            result *= elements[i];
+            String operation = (len - 1 == i) ? " = " : " * ";
+            System.out.print(elements[i] + operation);
         }
         System.out.println(result);
     }
 
     // 3. Удаление элементов массива
-    public static void deleteElementsArray() {
+    private static void deleteElementsArray() {
         System.out.println("3. Удаление элементов массива");
 
         // Заполнение массива произвольными числами
-        double[] array = new double[15];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = Math.random();
+        double[] randomArray = new double[15];
+        int len = randomArray.length;
+        for (int i = 0; i < len; i++) {
+            randomArray[i] = Math.random();
         }
 
         // Средняя ячейка массива
-        int avgLen = array.length / 2;
-        double etalonNumber = array[avgLen];
+        double etalonNumber = randomArray[len / 2];
 
         // Счетчик изменений
         int counterChange = 0;
 
         System.out.println("Исходный массив: ");
-        printArray(array);
+        printArray(randomArray);
 
-        for (int i = 0;  i < array.length; i++) {
-            if (array[i] > etalonNumber) {
-                array[i] = 0;
+        for (int i = 0;  i < len; i++) {
+            if (randomArray[i] > etalonNumber) {
+                randomArray[i] = 0;
                 counterChange++;
             }
         }
         System.out.println("Измененный массив: ");
-        printArray(array);
+        printArray(randomArray);
         System.out.println("количество обнуленных ячеек: " + counterChange);
     }
 
     // 4. Вывод алфавита лесенкой
-    public static void alpabitLadder() {
+    private static void printLadderAlphabit() {
         System.out.println("4. Вывод алфавита лесенкой");
 
-        char[] letters = new char[26];
+        char[] alphabit = new char[26];
+        int len = alphabit.length;
 
-        for (int i = 0; i < 26; i++) {
-            letters[i] = (char)((int)'A' + i);
+        for (int i = 0; i < len; i++) {
+            alphabit[i] = (char) ('A' + i);
         }
 
-        for (int i = 0; i < letters.length; i++) {
+        for (int i = 0; i < len; i++) {
             for (int j = 0; j <= i; j++) {
-                System.out.print(letters[letters.length - j - 1]);
+                System.out.print(alphabit[len - j - 1]);
             }
             System.out.println();
         }
@@ -131,7 +136,7 @@ public class ArraysTheme {
         int buf;
         while(!isSorted) {
             isSorted = true;
-            for (int i = 0; i < array.length-1; i++) {
+            for (int i = 0; i < len - 1; i++) {
                 if(array[i] > array[i+1]){
                     isSorted = false;
 
@@ -166,7 +171,8 @@ public class ArraysTheme {
     }
 
     private static void printArray(double[] array) {
-        for (int i = 0; i < array.length; i++) {
+        int len = array.length;
+        for (int i = 0; i < len; i++) {
             String delimiter = ((i + 1) % 8 == 0) ? "\n" : " ";
             System.out.printf("%.3f" + delimiter, array[i]);
         }
