@@ -73,20 +73,20 @@ public class ArraysTheme {
         double etalonNumber = randomArray[len / 2];
 
         // Счетчик изменений
-        int counterChange = 0;
+        int counterReset = 0;
 
         System.out.println("Исходный массив: ");
         printArray(randomArray);
 
-        for (int i = 0;  i < len; i++) {
+        for (int i = 0; i < len; i++) {
             if (randomArray[i] > etalonNumber) {
                 randomArray[i] = 0;
-                counterChange++;
+                counterReset++;
             }
         }
         System.out.println("Измененный массив: ");
         printArray(randomArray);
-        System.out.println("количество обнуленных ячеек: " + counterChange);
+        System.out.println("количество обнуленных ячеек: " + counterReset);
     }
 
     // 4. Вывод алфавита лесенкой
