@@ -43,16 +43,11 @@ public class Calculator {
                 }
                 return (double) a / b;
             case '^':
-                double result = 1;
-                for (int i = 0; i < b; i++) {
-                    result *= a; 
-                }
-                return result;
+                return Math.pow(a, b);
             case '%':
                 return a % b;
             default:
-                throw new IllegalArgumentException("Вы ввели недопустимую операцию: " 
-                        + mathOperation + ". Доступны операции +, -, *, /, %, ^");
+                throw new IllegalArgumentException("Ошибка: знак " + mathOperation + " не поддерживается");
         }
     }
 }
