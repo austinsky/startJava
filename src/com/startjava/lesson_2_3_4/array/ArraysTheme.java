@@ -9,26 +9,26 @@ public class ArraysTheme {
         System.out.println();
 
         // 2. Произведение элементов массива
-        multiplicationElements();
+        multiplyElements();
         System.out.println();
 
         // 3. Удаление элементов массива
-        deleteElementsArray();
+        deleteElements();
         System.out.println();
 
         // 4. Вывод алфавита лесенкой
-        printLadderAlphabit();
+        printLadderAlphabet();
         System.out.println();
 
         // 5. Заполнение массива уникальными числами
-        generateUniqueNumber();
+        fillArrayUniqueNumber();
 
     }
 
     // 1. Реверс значений массива
     private static void reverseArray() {
         System.out.println("1. Реверс значений массива");
-        int[] reverseArray = new int[] {1, 7, 4, 5, 2, 6, 3};
+        int[] reverseArray = {1, 7, 4, 5, 2, 6, 3};
         int len = reverseArray.length - 1;
         System.out.print("До реверса: ");
         printArray(reverseArray);
@@ -44,53 +44,57 @@ public class ArraysTheme {
     }
 
     // 2. Произведение элементов массива
-    private static void multiplicationElements() {
+    private static void multiplyElements() {
         System.out.println("2. Произведение элементов массива");
-        int[] elements = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int len = elements.length;
+        int[] multipliers = new int[10];
+        int len = multipliers.length;
+        for (int i = 0; i < len; i++) {
+            multipliers[i] = i;
+        }
+
         long result = 1;
 
         for (int i = 1; i < len - 1; i++) {
-            result *= elements[i];
-            String operation = (len - 1 == i) ? " = " : " * ";
-            System.out.print(elements[i] + operation);
+            result *= multipliers[i];
+            String operation = (i == len - 2) ? " = " : " * ";
+            System.out.print(multipliers[i] + operation);
         }
         System.out.println(result);
     }
 
     // 3. Удаление элементов массива
-    private static void deleteElementsArray() {
+    private static void deleteElements() {
         System.out.println("3. Удаление элементов массива");
 
         // Заполнение массива произвольными числами
-        double[] randomArray = new double[15];
-        int len = randomArray.length;
+        double[] randomNumbers = new double[15];
+        int len = randomNumbers.length;
         for (int i = 0; i < len; i++) {
-            randomArray[i] = Math.random();
+            randomNumbers[i] = Math.random();
         }
 
         // Средняя ячейка массива
-        double etalonNumber = randomArray[len / 2];
+        double middleArrayCell = randomNumbers[len / 2];
 
         // Счетчик изменений
         int counterReset = 0;
 
         System.out.println("Исходный массив: ");
-        printArray(randomArray);
+        printArray(randomNumbers);
 
         for (int i = 0; i < len; i++) {
-            if (randomArray[i] > etalonNumber) {
-                randomArray[i] = 0;
+            if (randomNumbers[i] > middleArrayCell) {
+                randomNumbers[i] = 0;
                 counterReset++;
             }
         }
         System.out.println("Измененный массив: ");
-        printArray(randomArray);
+        printArray(randomNumbers);
         System.out.println("количество обнуленных ячеек: " + counterReset);
     }
 
     // 4. Вывод алфавита лесенкой
-    private static void printLadderAlphabit() {
+    private static void printLadderAlphabet() {
         System.out.println("4. Вывод алфавита лесенкой");
 
         char[] alphabit = new char[26];
@@ -109,12 +113,12 @@ public class ArraysTheme {
     }
 
     // 5. Заполнение массива уникальными числами
-    private static void generateUniqueNumber() {
+    private static void fillArrayUniqueNumber() {
         System.out.println("5. Заполнение массива уникальными числами");
         Random random = new Random();
 
-        int[] array = new int[30];
-        int len = array.length;
+        int[] uniqueNumbers = new int[30];
+        int len = uniqueNumbers.length;
 
         for (int i = 0; i < len; i++) {
             boolean isUnique;
@@ -123,26 +127,25 @@ public class ArraysTheme {
                 isUnique = true;
                 number = random.nextInt(40) + 60;
                 for (int j = 0; j < i; j++) {
-                    if (array[j] == number) {
+                    if (uniqueNumbers[j] == number) {
                         isUnique = false;
                     }
                 }
             } while (isUnique == false);
-            array[i] = number;
+            uniqueNumbers[i] = number;
         }
 
         // пузырьковая сортировка
         boolean isSorted = false;
-        int buf;
         while(!isSorted) {
             isSorted = true;
             for (int i = 0; i < len - 1; i++) {
-                if(array[i] > array[i+1]){
+                if(uniqueNumbers[i] > uniqueNumbers[i+1]) {
                     isSorted = false;
 
-                    buf = array[i];
-                    array[i] = array[i+1];
-                    array[i+1] = buf;
+                    int buf = uniqueNumbers[i];
+                    uniqueNumbers[i] = uniqueNumbers[i+1];
+                    uniqueNumbers[i + 1] = buf;
                 }
             }
         }
@@ -150,7 +153,7 @@ public class ArraysTheme {
         // вывод
         for (int i = 0; i < len; i++) {
             String delimiter = ((i + 1) % 10 == 0) ? "\n" : " ";
-            System.out.print(array[i] + delimiter);
+            System.out.print(uniqueNumbers[i] + delimiter);
         }
         System.out.println();
     }

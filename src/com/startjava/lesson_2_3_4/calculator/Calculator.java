@@ -1,53 +1,25 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    private int a;
-    private int b;
-    private char mathOperation;
 
-    public void setA(int a) {
-        this.a = a;
-    }
+    private Calculator() {}
 
-    public int getA() {
-        return a;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
-    public int getB() {
-        return b;
-    }
-
-    public void setMathOperation(char mathOperation) {
-        this.mathOperation = mathOperation;
-    }
-
-    public char getMathOperation() {
-        return mathOperation;
-    }
-
-    public double calculate() {
-        switch(mathOperation) {
-            case '+':
-                return a + b;
-            case '-':
-                return a - b;
-            case '*':
-                return a * b;
-            case '/':
-                if (b == 0) {
+    public static double calculate(int a, char mathOperation, int b) {
+        return switch(mathOperation) {
+            case '+' -> a + b;
+            case '-' -> a - b;
+            case '*' -> a * b;
+            case '/' -> {
+                if (b != 0) {
+                    yield (double) a / b;
+                } else {
                     throw new IllegalArgumentException("Недопустимая операция: деление на 0");
                 }
-                return (double) a / b;
-            case '^':
-                return Math.pow(a, b);
-            case '%':
-                return a % b;
-            default:
-                throw new IllegalArgumentException("Ошибка: знак " + mathOperation + " не поддерживается");
-        }
+            }
+            case '^' -> Math.pow(a, b);
+            case '%' -> a % b;
+            default ->
+                throw new RuntimeException("Ошибка: знак " + mathOperation + " не поддерживается");
+        };
     }
 }

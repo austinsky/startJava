@@ -8,17 +8,20 @@ public class CalculatorTest {
     
     public static void main(String[] args) {
         // создание объектов
-        Calculator calculator = new Calculator();
         scanner = new Scanner(System.in);
         
         String answerContinue = "yes";
         do {
             if (answerContinue.equals("yes") ) {
-                enterMathExpression(calculator);
+                String[] inputArray = enterMathExpression();
                 try {
-                    double result = calculator.calculate();
-                    printResult(calculator, result);
-                } catch(IllegalArgumentException e) {
+                    int[] parseInputNumbers = checkAndParseInputIntegerNumbers(inputArray);
+                    char mathOperation = inputArray[1].charAt(0);
+
+                    double result = Calculator.calculate(parseInputNumbers[0], mathOperation,
+                            parseInputNumbers[1]);
+                    printResult(inputArray, result);
+                } catch(RuntimeException e) {
                     System.out.println(e.getMessage());
                 }
             }
@@ -29,17 +32,38 @@ public class CalculatorTest {
         scanner.close();
     }
 
-    public static void printResult(Calculator calculator, double result) {
-        System.out.println(calculator.getA() + " " + calculator.getMathOperation() + " " 
-                + calculator.getB() + " = " + ((result % 1 != 0) ? String.format("%.3f", result) : (int) result));
+    public static void printResult(String[] inputArray, double result) {
+        System.out.println(inputArray[0] + " " + inputArray[1].charAt(0) + " "
+                + inputArray[2] + " = " + ((result % 1 != 0) ? String.format("%.3f", result) : (int) result));
     }
 
-    public static void enterMathExpression(Calculator calculator) {
+    public static String[] enterMathExpression() {
         System.out.print("Введите математическое выражение: ");
         String inputLine = scanner.nextLine();
         String[] inputArray = inputLine.split(" ");
-        calculator.setA(Integer.parseInt(inputArray[0]));
-        calculator.setMathOperation(inputArray[1].charAt(0));
-        calculator.setB(Integer.parseInt(inputArray[2]));
+        return inputArray;
+    }
+
+    public static int[] checkAndParseInputIntegerNumbers(String[] inputArray) {
+        if (inputArray.length != 3) {
+            throw new RuntimeException("Неправильный набор аргументов.\n" +
+                    "Должно быть 3 аргумента - целое число, операция, целое число.\n" +
+                    "Аргументы должны быть разделены пробелом. \n" +
+                    "Пример: 2 + 3");
+        }
+        try {
+            int a = Integer.parseInt(inputArray[0]);
+            int b = Integer.parseInt(inputArray[2]);
+
+            if (a < 0 || b < 0) {
+                throw new NumberFormatException();
+            }
+
+            return new int[] {a, b};
+        }
+        catch (NumberFormatException e) {
+            throw new RuntimeException("Числа должны быть положительными и целыми\n" +
+                    "Должно быть 3 аргумента - целое число, операция, целое число.\n");
+        }
     }
 }
