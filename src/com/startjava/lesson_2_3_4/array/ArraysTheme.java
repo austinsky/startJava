@@ -10,28 +10,25 @@ public class ArraysTheme {
 
         // 2. Произведение элементов массива
         multiplyElements();
-        System.out.println();
 
         // 3. Удаление элементов массива
         deleteElements();
-        System.out.println();
 
         // 4. Вывод алфавита лесенкой
         printLadderAlphabet();
-        System.out.println();
 
         // 5. Заполнение массива уникальными числами
-        fillArrayUniqueNumber();
+        fillArrayUniqueNumbers();
 
     }
 
     // 1. Реверс значений массива
     private static void reverseArray() {
-        System.out.println("1. Реверс значений массива");
+        System.out.println("\n1. Реверс значений массива");
         int[] reverseArray = {1, 7, 4, 5, 2, 6, 3};
         int len = reverseArray.length - 1;
         System.out.print("До реверса: ");
-        printArray(reverseArray);
+        print(reverseArray);
 
         for (int i = 0; i < len; i++, len--) {
             int tmp = reverseArray[i];
@@ -40,20 +37,19 @@ public class ArraysTheme {
         }
 
         System.out.print("После реверса: ");
-        printArray(reverseArray);
+        print(reverseArray);
     }
 
     // 2. Произведение элементов массива
     private static void multiplyElements() {
-        System.out.println("2. Произведение элементов массива");
+        System.out.println("\n2. Произведение элементов массива");
         int[] multipliers = new int[10];
         int len = multipliers.length;
         for (int i = 0; i < len; i++) {
             multipliers[i] = i;
         }
 
-        long result = 1;
-
+        int result = 1;
         for (int i = 1; i < len - 1; i++) {
             result *= multipliers[i];
             String operation = (i == len - 2) ? " = " : " * ";
@@ -64,7 +60,7 @@ public class ArraysTheme {
 
     // 3. Удаление элементов массива
     private static void deleteElements() {
-        System.out.println("3. Удаление элементов массива");
+        System.out.println("\n3. Удаление элементов массива");
 
         // Заполнение массива произвольными числами
         double[] randomNumbers = new double[15];
@@ -74,47 +70,47 @@ public class ArraysTheme {
         }
 
         // Средняя ячейка массива
-        double middleArrayCell = randomNumbers[len / 2];
+        double middleCellArray = randomNumbers[len / 2];
 
         // Счетчик изменений
         int counterReset = 0;
 
         System.out.println("Исходный массив: ");
-        printArray(randomNumbers);
+        print(randomNumbers);
 
         for (int i = 0; i < len; i++) {
-            if (randomNumbers[i] > middleArrayCell) {
+            if (randomNumbers[i] > middleCellArray) {
                 randomNumbers[i] = 0;
                 counterReset++;
             }
         }
         System.out.println("Измененный массив: ");
-        printArray(randomNumbers);
+        print(randomNumbers);
         System.out.println("количество обнуленных ячеек: " + counterReset);
     }
 
     // 4. Вывод алфавита лесенкой
     private static void printLadderAlphabet() {
-        System.out.println("4. Вывод алфавита лесенкой");
+        System.out.println("\n4. Вывод алфавита лесенкой");
 
-        char[] alphabit = new char[26];
-        int len = alphabit.length;
+        char[] alphabet = new char[26];
+        int len = alphabet.length;
 
         for (int i = 0; i < len; i++) {
-            alphabit[i] = (char) ('A' + i);
+            alphabet[i] = (char) ('A' + i);
         }
 
         for (int i = 0; i < len; i++) {
             for (int j = 0; j <= i; j++) {
-                System.out.print(alphabit[len - j - 1]);
+                System.out.print(alphabet[len - j - 1]);
             }
             System.out.println();
         }
     }
 
     // 5. Заполнение массива уникальными числами
-    private static void fillArrayUniqueNumber() {
-        System.out.println("5. Заполнение массива уникальными числами");
+    private static void fillArrayUniqueNumbers() {
+        System.out.println("\n5. Заполнение массива уникальными числами");
         Random random = new Random();
 
         int[] uniqueNumbers = new int[30];
@@ -159,7 +155,7 @@ public class ArraysTheme {
     }
 
     // Вывод массива
-    private static void printArray(int[] array) {
+    private static void print(int[] array) {
         System.out.print("[");
         boolean isFirstElement = true;
         for (int number : array) {
@@ -173,7 +169,7 @@ public class ArraysTheme {
         System.out.println("]");
     }
 
-    private static void printArray(double[] array) {
+    private static void print(double[] array) {
         int len = array.length;
         for (int i = 0; i < len; i++) {
             String delimiter = ((i + 1) % 8 == 0) ? "\n" : " ";
