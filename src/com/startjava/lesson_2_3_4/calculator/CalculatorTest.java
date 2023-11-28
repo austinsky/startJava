@@ -4,12 +4,9 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
-        // создание объектов
-        scanner = new Scanner(System.in);
-        
         String answerContinue = "yes";
         do {
             if (answerContinue.equals("yes") ) {
@@ -34,8 +31,6 @@ public class CalculatorTest {
 
     public static String enterMathExpression() {
         System.out.print("Введите математическое выражение: ");
-        return  scanner.nextLine();
+        return scanner.nextLine();
     }
-
-
 }

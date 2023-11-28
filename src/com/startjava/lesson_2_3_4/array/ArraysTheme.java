@@ -6,7 +6,6 @@ public class ArraysTheme {
     public static void main(String[] args) {
         // 1. Реверс значений массива
         reverseArray();
-        System.out.println();
 
         // 2. Произведение элементов массива
         multiplyElements();

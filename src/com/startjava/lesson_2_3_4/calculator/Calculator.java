@@ -3,11 +3,11 @@ package com.startjava.lesson_2_3_4.calculator;
 public class Calculator {
 
     public static double calculate(String mathExpression) {
-        String[] inputArray = mathExpression.split(" ");
-        int[] parseInputNumbers = checkAndParseInputIntegerNumbers(inputArray);
-        char mathOperation = inputArray[1].charAt(0);
-        int a = parseInputNumbers[0];
-        int b = parseInputNumbers[1];
+        String[] elements = mathExpression.split(" ");
+        validExpression(elements);
+        int a = Integer.parseInt(elements[0]);
+        char mathOperation = elements[1].charAt(0);
+        int b = Integer.parseInt(elements[2]);
         return switch (mathOperation) {
             case '+' -> a + b;
             case '-' -> a - b;
@@ -24,25 +24,25 @@ public class Calculator {
         };
     }
 
-    private static int[] checkAndParseInputIntegerNumbers(String[] inputArray) {
-        if (inputArray.length != 3) {
+    private static void validExpression(String[] elements) {
+        int a;
+        int b;
+        if (elements.length != 3) {
             throw new RuntimeException("Неправильный набор аргументов.\n" +
                     "Должно быть 3 аргумента - целое число, операция, целое число.\n" +
                     "Аргументы должны быть разделены пробелом. \n" +
                     "Пример: 2 + 3");
         }
         try {
-            int a = Integer.parseInt(inputArray[0]);
-            int b = Integer.parseInt(inputArray[2]);
-
-            if (a < 0 || b < 0) {
-                throw new NumberFormatException();
-            }
-
-            return new int[]{a, b};
+            a = Integer.parseInt(elements[0]);
+            b = Integer.parseInt(elements[2]);
         } catch (NumberFormatException e) {
             throw new RuntimeException("Числа должны быть положительными и целыми\n" +
                     "Должно быть 3 аргумента - целое число, операция, целое число.\n");
+        }
+
+        if (a <= 0 || b <= 0) {
+            throw new RuntimeException("Введенные числа должны быть положительными.");
         }
     }
 }

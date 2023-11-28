@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class Player {
     private String name;
     private int[] numbers;
-
-    private int counter;
+    private int attempt;
     private int score;
 
     public Player(String name) {
@@ -19,24 +18,21 @@ public class Player {
     }
 
     public int getNumber(int index) {
-        if (index >= 0 && index < GuessNumber.MAX_COUNT_ATTEMPT) {
-            return numbers[index];
-        }
-        throw new RuntimeException("Player::getNumber(): неверный индекс");
+            return numbers[attempt - 1];
     }
 
     public int[] getNumbers() {
-        return Arrays.copyOf(numbers, counter);
+        return Arrays.copyOf(numbers, attempt);
     }
 
     public void setNumber(int number) {
-        if (counter < GuessNumber.MAX_COUNT_ATTEMPT && number > 0 && number <= 100) {
-            numbers[counter++] = number;
+        if (attempt < GuessNumber.MAX_COUNT_ATTEMPT && number > 0 && number <= 100) {
+            numbers[attempt++] = number;
         }
     }
 
-    public int getCounter() {
-        return counter;
+    public int getAttempt() {
+        return attempt;
     }
 
     public void addScore() {
@@ -47,11 +43,10 @@ public class Player {
         return score;
     }
 
-    public void resetCounter() {
-        if (counter > 0) {
-            Arrays.fill(numbers, 0, counter - 1, 0);
-            counter = 0;
+    public void clear() {
+        if (attempt > 0) {
+            Arrays.fill(numbers, 0, attempt, 0);
+            attempt = 0;
         }
     }
-
 }
