@@ -3,13 +3,16 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 
 public class GuessNumberTest {
+
+    public static final int COUNT_PLAYERS = 3;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String playerName1 = enterPlayerName("Введите имя первого игрока: ", scanner);
-        String playerName2 = enterPlayerName("Введите имя второго игрока: ", scanner);
-        String playerName3 = enterPlayerName("Введите имя третьего игрока: ", scanner);
-
-        GuessNumber game = new GuessNumber(new String[] {playerName1, playerName2, playerName3}, scanner);
+        String[] playersNames = new String[COUNT_PLAYERS];
+        for (int i = 0; i < COUNT_PLAYERS; i++) {
+            String playerName = enterPlayerName("Введите имя " + (i + 1) + " игрока: ", scanner);
+            playersNames[i] = playerName;
+        }
+        GuessNumber game = new GuessNumber(playersNames, scanner);
 
         String answerContinue = "yes";
         do {
@@ -22,7 +25,7 @@ public class GuessNumberTest {
         scanner.close();
     }
 
-    public static String enterPlayerName(String message, Scanner scanner) {
+    private static String enterPlayerName(String message, Scanner scanner) {
         System.out.print(message);
         return  scanner.nextLine();
     }

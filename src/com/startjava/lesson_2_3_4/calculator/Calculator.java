@@ -1,6 +1,13 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
+    private static final String ARGUMENT_EXCEPTION_MESSAGE = "Должно быть 3 аргумента - целое число, операция, целое число.\n";
+    private static final String ARGUMENT_NUMBER_EXCEPTION_MESSAGE = "Неправильный набор аргументов.\n";
+    private static final String ARGUMENT_SPACE_EXCEPTION_MESSAGE = "Аргументы должны быть разделены пробелом. \n";
+    private static final String ARGUMENT_EXAMPLE_EXCEPTION_MESSAGE = "Пример: 2 + 3";
+    private static final String INVALID_TYPE_ARGUMENT_EXCEPTION_MESSAGE = "Числа должны быть целыми (int)\n";
+    private static final String ARGUMENT_POSITIVE_EXCEPTION_MESSAGE = "Введенные числа должны быть положительными.\n";
+
 
     public static double calculate(String mathExpression) {
         String[] elements = mathExpression.split(" ");
@@ -12,12 +19,7 @@ public class Calculator {
             case '+' -> a + b;
             case '-' -> a - b;
             case '*' -> a * b;
-            case '/' -> {
-                if (b != 0) {
-                    yield (double) a / b;
-                }
-                throw new IllegalArgumentException("Недопустимая операция: деление на 0");
-            }
+            case '/' -> (double) a / b;
             case '^' -> Math.pow(a, b);
             case '%' -> a % b;
             default -> throw new RuntimeException("Ошибка: знак " + mathOperation + " не поддерживается");
@@ -25,24 +27,21 @@ public class Calculator {
     }
 
     private static void validExpression(String[] elements) {
+        if (elements.length != 3) {
+            throw new RuntimeException( ARGUMENT_NUMBER_EXCEPTION_MESSAGE + ARGUMENT_EXCEPTION_MESSAGE +
+                     ARGUMENT_SPACE_EXCEPTION_MESSAGE + ARGUMENT_EXAMPLE_EXCEPTION_MESSAGE);
+        }
         int a;
         int b;
-        if (elements.length != 3) {
-            throw new RuntimeException("Неправильный набор аргументов.\n" +
-                    "Должно быть 3 аргумента - целое число, операция, целое число.\n" +
-                    "Аргументы должны быть разделены пробелом. \n" +
-                    "Пример: 2 + 3");
-        }
         try {
             a = Integer.parseInt(elements[0]);
             b = Integer.parseInt(elements[2]);
         } catch (NumberFormatException e) {
-            throw new RuntimeException("Числа должны быть положительными и целыми\n" +
-                    "Должно быть 3 аргумента - целое число, операция, целое число.\n");
+            throw new RuntimeException(INVALID_TYPE_ARGUMENT_EXCEPTION_MESSAGE + ARGUMENT_EXCEPTION_MESSAGE);
         }
 
         if (a <= 0 || b <= 0) {
-            throw new RuntimeException("Введенные числа должны быть положительными.");
+            throw new RuntimeException(ARGUMENT_POSITIVE_EXCEPTION_MESSAGE);
         }
     }
 }

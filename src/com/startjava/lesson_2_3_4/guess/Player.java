@@ -17,18 +17,24 @@ public class Player {
         return name;
     }
 
-    public int getNumber(int index) {
-            return numbers[attempt - 1];
+    public int getNumber() {
+        return numbers[attempt - 1];
+    }
+
+    public boolean addNumber(int number) {
+        if (attempt < GuessNumber.MAX_COUNT_ATTEMPT && number > GuessNumber.MIN_VALUE_GUESS_NUMBER
+                && number <= GuessNumber.MAX_VALUE_GUESS_NUMBER) {
+            numbers[attempt++] = number;
+            return true;
+        } else {
+            System.out.println("Введите число в диапазоне (" + GuessNumber.MIN_VALUE_GUESS_NUMBER + "," +
+                    GuessNumber.MAX_VALUE_GUESS_NUMBER + " ]");
+            return false;
+        }
     }
 
     public int[] getNumbers() {
         return Arrays.copyOf(numbers, attempt);
-    }
-
-    public void setNumber(int number) {
-        if (attempt < GuessNumber.MAX_COUNT_ATTEMPT && number > 0 && number <= 100) {
-            numbers[attempt++] = number;
-        }
     }
 
     public int getAttempt() {
