@@ -26,8 +26,7 @@ public class GuessNumberTest {
         String[] playersNames = new String[COUNT_PLAYERS];
         for (int i = 0; i < COUNT_PLAYERS; i++) {
             System.out.print("Введите имя " + (i + 1) + " игрока: ");
-            String name = scanner.nextLine();;
-            playersNames[i] = name;
+            playersNames[i] = scanner.nextLine();
         }
 
         return playersNames;

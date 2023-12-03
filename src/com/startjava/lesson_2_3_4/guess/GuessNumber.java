@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class GuessNumber {
     public static final int MAX_COUNT_ATTEMPT = 2;
-    public static final int COUNT_ROUNDS = 3;
+    private static final int COUNT_ROUNDS = 3;
     public static final int START_RANGE = 1;
     public static final int END_RANGE = 100;
 
@@ -29,7 +29,7 @@ public class GuessNumber {
             for(Player player : players) {
                 player.clear();
             }
-            int guessNumber = random.nextInt(GuessNumber.START_RANGE, GuessNumber.END_RANGE + 1);
+            int guessNumber = random.nextInt(START_RANGE, END_RANGE + 1);
             System.out.println("Игра началась! У каждого игрока по " + MAX_COUNT_ATTEMPT + " попыток.");
 
             System.out.println("===================");
@@ -91,12 +91,11 @@ public class GuessNumber {
             boolean isAddNumber;
             do {
                 System.out.print(player.getName() + " введите ваше число: ");
-                playerNumber = scanner.nextInt();
+                isAddNumber = player.addNumber(scanner.nextInt());
                 scanner.nextLine();
-                isAddNumber = player.addNumber(playerNumber);
                 if (!isAddNumber) {
-                    System.out.println("Введите число в диапазоне [" + GuessNumber.START_RANGE + "," +
-                            GuessNumber.END_RANGE + " ]");
+                    System.out.println("Введите число в диапазоне [" + START_RANGE + "," +
+                            END_RANGE + " ]");
                 }
             } while (!isAddNumber);
         }
@@ -104,8 +103,8 @@ public class GuessNumber {
 
     private boolean isGuessed(Player currentPlayer, int guessNumber) {
         int numberAttempt = currentPlayer.getAttempt();
-
         int playerNumber = currentPlayer.getNumber();
+
         if (playerNumber == guessNumber) {
             System.out.println("Игрок " + currentPlayer.getName() +
                     " угадал число " + guessNumber + " с " + numberAttempt + " попытки");
@@ -131,7 +130,7 @@ public class GuessNumber {
     }
 
     private void defineWinner() {
-        Player winner = getWinner();
+        Player winner = findWinner();
         if (winner == null) {
             System.out.println("Победила дружба");
         } else {
@@ -139,10 +138,10 @@ public class GuessNumber {
         }
     }
 
-    private Player getWinner() {
+    private Player findWinner() {
         int maxScore = 0;
         Player winner = null;
-        for(Player player: players) {
+        for(Player player : players) {
             if (maxScore < player.getScore()) {
                 maxScore = player.getScore();
                 winner = player;
