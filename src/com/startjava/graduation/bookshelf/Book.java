@@ -6,66 +6,55 @@ public class Book {
                                                                             Ошибка формата:
                                                                             Должно быть: автор, название, год издания
                                                                           """;
-
     private static final String ERROR_PARSE_YEAR_EXCEPTION = """
                                                                Ошибка формата:
                                                                Год издания должен быть числов от 1900 до 2100
                                                              """;
+    private final String author;
+    private final String title;
+    private final int yearOfPublication;
 
-    private String author;
-    private String title;
-    private int yearOfPublication;
-
-    private int bookInfoLength;
+    private final int bookInfoLength;
 
 
-    private Book(String author, String title, int yearOfPublication, int bookInfoLength) {
-        this.author = author;
-        this.title = title;
-        this.yearOfPublication = yearOfPublication;
-        this.bookInfoLength = bookInfoLength;
-    }
-
-    public static Book createBook(String bookDescription) {
-        String[] bookDescription_parts = bookDescription.split(", ");
+    public Book(String bookDescription) {
+        String[] bookDescriptionParts = bookDescription.split(", ");
+        String author = null;
+        String title = null;
+        int yearOfPublication = 0;
+        int bookInfoLength = 0;
 
         try {
-            if (bookDescription_parts.length != 3) {
+            if (bookDescriptionParts.length != 3) {
                 throw new RuntimeException(ERROR_NUMBER_ARGUMENTS_FORMAT_EXCEPTION);
             }
-            String author = bookDescription_parts[0];
-            String title = bookDescription_parts[1];
-            int yearOfPublication = Integer.parseInt(bookDescription_parts[2]);
-            int bookInfoLength = bookDescription.length();
+            author = bookDescriptionParts[0];
+            title = bookDescriptionParts[1];
+            yearOfPublication = Integer.parseInt(bookDescriptionParts[2]);
+            bookInfoLength = bookDescription.length();
             if (yearOfPublication < 0 || yearOfPublication > 2100) {
                 throw new NumberFormatException();
             }
-            return new Book(author, title, yearOfPublication, bookInfoLength);
+
         } catch (NumberFormatException ignored) {
             System.out.println(ERROR_PARSE_YEAR_EXCEPTION);
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
 
-        return null;
-    }
-
-    public String getAuthor() {
-        return author;
+        this.author = author;
+        this.title = title;
+        this.yearOfPublication = yearOfPublication;
+        this.bookInfoLength = bookInfoLength;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public int getYearOfPublication() {
-        return yearOfPublication;
-    }
-
     public int getBookInfoLength() {
         return bookInfoLength;
     }
-
 
     @Override
     public String toString() {

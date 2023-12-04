@@ -31,48 +31,58 @@ public class BookShelfTest {
 
     private static void executeCommand(String answer) {
         switch (answer) {
-            case "1" -> {
-                System.out.println("Введите информацию о книге в формате: автор, название, год издания");
-                String bookInfo = scanner.nextLine();
-                Book book = Book.createBook(bookInfo);
-                if(book != null && bookShelf.addBook(book)) {
-                    System.out.println("книга добавлена");
-                } else {
-                    System.out.println("при добавлении книги возникла ошибка. Книга не добавлена");
-                }
-            }
-            case "2" -> {
-                System.out.print("Введите название книги для удаления: ");
-                String title = scanner.nextLine();
-                if(bookShelf.deleteBook(title)) {
-                    System.out.println("книга удалена");
-                } else {
-                    System.out.println("при удалении книги возникла ошибка. Книга не удалена");
-                }
-            }
-            case "3" -> {
-                System.out.print("Введите название книги для поиска: ");
-                String title = scanner.nextLine();
-                Book book = bookShelf.findBook(title);
-                if(book != null) {
-                    System.out.println("книга найдена");
-                    System.out.println(book);
-                } else {
-                    System.out.println("Книга не найдена");
-                }
-            }
-            case "4" -> {
-                bookShelf.clearBookShelf();
-                System.out.println("Шкаф очищен");
-            }
+            case "1" -> addBook();
+            case "2" -> deleteBook();
+            case "3" -> findBook();
+            case "4" -> clearBookShelf();
             case "q" -> { return; }
-            default -> {
-                System.out.println("Введена неверная команда");
-                return;
-            }
+            default -> unknownCommand();
         };
         System.out.println("Для продолжения нажмите Enter");
         scanner.nextLine();
+    }
+
+    private static void addBook() {
+        System.out.println("Введите информацию о книге в формате: автор, название, год издания");
+        String bookInfo = scanner.nextLine();
+        Book book = new Book(bookInfo);
+        if(book != null && bookShelf.addBook(book)) {
+            System.out.println("книга добавлена");
+        } else {
+            System.out.println("при добавлении книги возникла ошибка. Книга не добавлена");
+        }
+    }
+
+    private static void deleteBook() {
+        System.out.print("Введите название книги для удаления: ");
+        String title = scanner.nextLine();
+        if(bookShelf.deleteBook(title)) {
+            System.out.println("книга удалена");
+        } else {
+            System.out.println("при удалении книги возникла ошибка. Книга не удалена");
+        }
+    }
+
+    private static void findBook() {
+        System.out.print("Введите название книги для поиска: ");
+        String title = scanner.nextLine();
+        Book book = bookShelf.findBook(title);
+        if(book != null) {
+            System.out.println("книга найдена");
+            System.out.println(book);
+        } else {
+            System.out.println("Книга не найдена");
+        }
+    }
+
+    private static void clearBookShelf() {
+        bookShelf.clearBookShelf();
+        System.out.println("Шкаф очищен");
+    }
+
+    private static void unknownCommand() {
+        System.out.println("Введена неверная команда");
+        return;
     }
 
     private static void printBookShelf() {
@@ -83,8 +93,8 @@ public class BookShelfTest {
             System.out.println("количество свободных полок: " + bookShelf.getCountFreeBookShelfs());
             System.out.println("-".repeat(bookShelf.getMaxLengthLine() + 4));
             Book[] books = bookShelf.getAllBooks();
-            for (int i = 0; i < bookShelf.getCountBook(); i++) {
-                System.out.println(String.format("| %-" + bookShelf.getMaxLengthLine() + "s |", books[i]));
+            for (Book book : books) {
+                System.out.println(String.format("| %-" + bookShelf.getMaxLengthLine() + "s |", book));
                 System.out.println("-".repeat(bookShelf.getMaxLengthLine() + 4));
             }
         }
