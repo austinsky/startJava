@@ -13,7 +13,7 @@ public class BookShelf {
         books = new Book[CAPACITY];
     }
 
-    public int getMaxLengthLine() {
+    public int getLengthShelves() {
         return lengthShelves;
     }
 
@@ -31,7 +31,6 @@ public class BookShelf {
             }
             return true;
         }
-        System.out.println("Шкаф заполнен. Для добавления сначала удалите какую нибудь книгу");
         return false;
     }
 
@@ -65,18 +64,16 @@ public class BookShelf {
 
     private void updateLengthShelves() {
         lengthShelves = 0;
-        for (int j = 0; j < countBooks; j++) {
-            if (lengthShelves < books[j].getBookInfoLength()) {
-                lengthShelves = books[j].getBookInfoLength();
+        for (int i = 0; i < countBooks; i++) {
+            if (lengthShelves < books[i].getBookInfoLength()) {
+                lengthShelves = books[i].getBookInfoLength();
             }
         }
     }
 
     // получить все книги (только для визуализации шкафа)
     public Book[] getAllBooks() {
-        Book[] result = new Book[countBooks];
-        System.arraycopy(books, 0, result, 0, countBooks);
-        return result;
+        return Arrays.copyOf(books, countBooks);
     }
 
     // получить количество свободных полок
@@ -86,9 +83,7 @@ public class BookShelf {
 
     // очистить шкаф
     public void clearBookShelf() {
-        for (int i = 0; i < books.length; i++) {
-            books[i] = null;
-        }
+        Arrays.fill(books, 0, countBooks, null);
         countBooks = 0;
     }
 }
