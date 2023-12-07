@@ -6,7 +6,7 @@ public class BookShelfTest {
     private static Scanner scanner = new Scanner(System.in);
     private static BookShelf bookShelf = new BookShelf();
 
-    private static final String BOOK_NOT_ADD= "Книга не добавлена";
+    private static final String BOOK_NOT_ADD = "Книга не добавлена";
 
     public static void main(String[] args) {
         String menuItem = "";
@@ -20,11 +20,11 @@ public class BookShelfTest {
     }
 
     private static void printBookShelf() {
-        if (bookShelf.getCountBook() == 0) {
+        if (bookShelf.getCountBooks() == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу");
         } else {
-            System.out.print("Количество книг: " + bookShelf.getCountBook() + " ");
-            System.out.println("количество свободных полок: " + bookShelf.getCountFreeBookShelfs());
+            System.out.print("Количество книг: " + bookShelf.getCountBooks() + " ");
+            System.out.println("количество свободных полок: " + bookShelf.getCountFreeShelves());
             System.out.println("-".repeat(bookShelf.getLengthShelves() + 4));
             Book[] books = bookShelf.getAllBooks();
             for (Book book : books) {
@@ -40,9 +40,9 @@ public class BookShelfTest {
                 1. Добавить книгу
                 2. Удалить книгу
                 3. Найти книгу
-                4. очистить шкаф
+                4. Очистить шкаф
                 q. Выход из программы
-                Введите ваш ответ:""" + " ");
+                Введите ваш ответ:\s""");
     }
 
     private static void executeCommand(String menuItem) {
@@ -64,13 +64,10 @@ public class BookShelfTest {
         try {
             Book book = new Book(bookInfo);
             if(bookShelf.addBook(book)) {
-                System.out.println("книга добавлена");
+                System.out.println("Книга добавлена");
             } else {
                 System.out.println("Шкаф заполнен. Для добавления сначала удалите какую нибудь книгу");
             }
-        } catch (NumberFormatException ignored) {
-            System.out.println(Book.YEAR_FORMAT_EXCEPTION_MSG);
-            System.out.println(BOOK_NOT_ADD);
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
             System.out.println(BOOK_NOT_ADD);
@@ -81,9 +78,9 @@ public class BookShelfTest {
         System.out.print("Введите название книги для удаления: ");
         String title = scanner.nextLine();
         if(bookShelf.deleteBook(title)) {
-            System.out.println("книга удалена");
+            System.out.println("Книга удалена");
         } else {
-            System.out.println("книга не найдена");
+            System.out.println("Книга не найдена");
         }
     }
 
@@ -92,7 +89,7 @@ public class BookShelfTest {
         String title = scanner.nextLine();
         Book book = bookShelf.findBook(title);
         if(book != null) {
-            System.out.println("книга найдена");
+            System.out.println("Книга найдена");
             System.out.println(book);
         } else {
             System.out.println("Книга не найдена");

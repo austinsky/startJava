@@ -18,7 +18,7 @@ public class BookShelf {
     }
 
     // получить количество книг в шкафу
-    public int getCountBook() {
+    public int getCountBooks() {
         return countBooks;
     }
 
@@ -77,7 +77,7 @@ public class BookShelf {
     }
 
     // получить количество свободных полок
-    public int getCountFreeBookShelfs() {
+    public int getCountFreeShelves() {
         return CAPACITY - countBooks;
     }
 
