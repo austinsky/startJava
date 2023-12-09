@@ -13,8 +13,7 @@ public class BookShelfTest {
         do {
             printBookShelf();
             showMenu();
-            menuItem = scanner.nextLine();
-            executeCommand(menuItem);
+            menuItem = executeCommand();
         } while(!menuItem.equals("q"));
         scanner.close();
     }
@@ -23,13 +22,14 @@ public class BookShelfTest {
         if (bookShelf.getCountBooks() == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу");
         } else {
+            int lengthShelf = bookShelf.getLengthShelves();
             System.out.print("Количество книг: " + bookShelf.getCountBooks() + " ");
-            System.out.println("количество свободных полок: " + bookShelf.getCountFreeShelves());
-            System.out.println("-".repeat(bookShelf.getLengthShelves() + 4));
+            System.out.println("Количество свободных полок: " + bookShelf.getCountFreeShelves());
+            System.out.println("-".repeat(lengthShelf + 4));
             Book[] books = bookShelf.getAllBooks();
             for (Book book : books) {
-                System.out.println(String.format("| %-" + bookShelf.getLengthShelves() + "s |", book));
-                System.out.println("-".repeat(bookShelf.getLengthShelves() + 4));
+                System.out.println(String.format("| %-" + lengthShelf + "s |", book));
+                System.out.println("-".repeat(lengthShelf + 4));
             }
         }
     }
@@ -45,17 +45,19 @@ public class BookShelfTest {
                 Введите ваш ответ:\s""");
     }
 
-    private static void executeCommand(String menuItem) {
+    private static String executeCommand() {
+        String menuItem = scanner.nextLine();
         switch (menuItem) {
             case "1" -> addBook();
             case "2" -> deleteBook();
             case "3" -> findBook();
             case "4" -> clearBookShelf();
-            case "q" -> { return; }
+            case "q" -> {return menuItem;}
             default -> System.out.println("Введена неверная команда");
         };
         System.out.println("Для продолжения нажмите Enter");
         scanner.nextLine();
+        return menuItem;
     }
 
     private static void addBook() {
@@ -69,8 +71,7 @@ public class BookShelfTest {
                 System.out.println("Шкаф заполнен. Для добавления сначала удалите какую нибудь книгу");
             }
         } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
-            System.out.println(BOOK_NOT_ADD);
+            System.out.println(e.getMessage() + "\n" + BOOK_NOT_ADD);
         }
     }
 
@@ -89,8 +90,7 @@ public class BookShelfTest {
         String title = scanner.nextLine();
         Book book = bookShelf.findBook(title);
         if(book != null) {
-            System.out.println("Книга найдена");
-            System.out.println(book);
+            System.out.println("Книга найдена\n" + book);
         } else {
             System.out.println("Книга не найдена");
         }
