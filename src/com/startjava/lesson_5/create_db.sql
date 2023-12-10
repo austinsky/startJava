@@ -1,5 +1,5 @@
-drop database if exists robots;
-create database robots;
+-- drop database if exists robots;
+-- create database robots;
 
 \c robots;
 
